@@ -1,15 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import DrawerQuestion from '@/components/DrawerQuestion.vue';
-import { db, eq, count, desc, Questions, Answers } from 'astro:db'
-
-const questions = await db.select().from(Questions).orderBy(desc(Questions.id));
+export const prerender = false;
 import CardQuestion from "@/components/CardQuestion.astro";
-
-import { getQuestions } from "@/db/client";
-
-const questions2 = await getQuestions();
-console.log(questions2);
+import { getQuestionsWithAnswerCount } from "@/db/client";
+const questions = await getQuestionsWithAnswerCount();
 ---
 
 <Layout title="Welcome to Astro.">

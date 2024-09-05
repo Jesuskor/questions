@@ -1,18 +1,7 @@
 ---
 const { data } = Astro.props;
-import { db, eq, count, desc, Questions, Answers } from 'astro:db';
+export const prerender = false;
 import AnswersSheet from '@/components/AnswersSheet.vue';
-
-const [countAnswers] = await db
-    .select({ count: count(Answers.id) })
-    .from(Answers)
-    .where(eq(Answers.questionId, data.id));
-
-const answers = await db
-    .select()
-    .from(Answers)
-    .where(eq(Answers.questionId, data.id))
-    .orderBy(Answers.id);
 ---
 
-<AnswersSheet data={data} count={countAnswers.count} answers={answers} client:load />
+<AnswersSheet data={data} client:visible />

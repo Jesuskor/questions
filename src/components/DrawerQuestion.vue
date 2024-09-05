@@ -17,7 +17,7 @@ const questionText = ref('')
 
 const handleSubmit = () => {
   addQuestion(questionText.value, new Date().toISOString());
-  questionText.value = ''
+  questionText.value = '';
 }
 
 </script>
