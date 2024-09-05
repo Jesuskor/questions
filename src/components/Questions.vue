@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { getQuestionsWithAnswerCount } from "@/db/client";
-import AnswersSheet from "@/components/AnswersSheet.vue";
 import CardQuestion from "@/components/CardQuestion.vue";
 import ButtonQuestion from "@/components/ButtonQuestion.vue";
 const questions = await getQuestionsWithAnswerCount();
