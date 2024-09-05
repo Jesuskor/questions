@@ -1,0 +1,31 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import DrawerQuestion from '@/components/DrawerQuestion.vue';
+export const prerender = false;
+import CardQuestion from "@/components/CardQuestion.astro";
+import { getQuestionsWithAnswerCount } from "@/db/client";
+const questions = await getQuestionsWithAnswerCount();
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<section class="pt-8 lg:pt-32 bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover bg-fixed">
+			<div class="mx-auto max-w-7xl min-h-svh px-4 sm:px-6 lg:px-8 relative text-center">
+				<h1 class="max-w-2xl mx-auto text-center font-manrope font-bold text-4xl text-gray-900 mb-5 md:text-5xl leading-[50px]">
+					Envía tu pregunta de forma
+					<span class="text-indigo-600">anónima</span>
+				</h1>
+				<p class="max-w-sm mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-9">Haz clic en una pregunta para ver la respuesta</p>
+				<DrawerQuestion client:visible />
+				<div class="flex flex-col items-center gap-y-4 justify-center">
+					{
+						questions.map((question) => (
+							<CardQuestion data={question} />
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+	</main>
+</Layout>

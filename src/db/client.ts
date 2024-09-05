@@ -7,7 +7,7 @@ const client = createClient({
 
 export const getQuestionsWithAnswerCount = async () => {
     const sql = `
-        SELECT q.id, q.question, COUNT(a.id) as answer_count
+        SELECT q.id, q.question, q.createdAt, COUNT(a.id) as answer_count
         FROM questions q
         LEFT JOIN answers a ON q.id = a.questionId
         GROUP BY q.id
