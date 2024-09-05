@@ -17,6 +17,7 @@
     "@astrojs/vue": "^4.5.0",
     "@formkit/tempo": "^0.1.2",
     "@github/relative-time-element": "^4.4.3",
+    "@libsql/client": "^0.10.0",
     "astro": "^4.15.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

@@ -4,8 +4,12 @@ import DrawerQuestion from '@/components/DrawerQuestion.vue';
 import { db, eq, count, desc, Questions, Answers } from 'astro:db'
 
 const questions = await db.select().from(Questions).orderBy(desc(Questions.id));
-console.log(questions);
-import CardQuestion from "../components/CardQuestion.astro";
+import CardQuestion from "@/components/CardQuestion.astro";
+
+import { getQuestions } from "@/db/client";
+
+const questions2 = await getQuestions();
+console.log(questions2);
 ---
 
 <Layout title="Welcome to Astro.">
