@@ -1,8 +1,8 @@
 import { createClient } from "@libsql/client";
 
 const client = createClient({
-    url: "libsql://questions-jesuskor.turso.io",
-    authToken: "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjU0MjU2NDgsImlkIjoiYjQ4NjYzNzUtNTVlMC00YmJkLTgyZjEtY2NhOWMyMWNhMTk4In0.5tOVQrSfGgWIUsqUHTAkfS3d455F6OvXPxOyeAXVgmaWUW3zwMYlE8LwYHdGlGZsEhGXv6t9sbXAAqL2I_yiBQ",
+    url: import.meta.env.DATABASE_URL,
+    authToken: import.meta.env.DATABASE_TOKEN,
 })
 
 export const getQuestionsWithAnswerCount = async () => {
